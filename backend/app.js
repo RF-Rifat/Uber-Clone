@@ -6,6 +6,7 @@ const app = express();
 const connectToDb = require("./db/db");
 const cookiesParser = require("cookie-parser");
 const userRoutes = require("./routes/user.routes");
+const driverRoutes = require("./routes/driver.routes");
 connectToDb();
 app.use(cors());
 app.use(express.json());
@@ -17,5 +18,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/users", userRoutes);
+app.use("/drivers", driverRoutes)
 
 module.exports = app;
